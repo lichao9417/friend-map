@@ -4,8 +4,9 @@
 <view class="danmuView" wx:if="{{danmuSwitchStatus}}">
     <view class="danmuText" wx:for="{{danmuList}}" wx:key="id">
         <text wx:if="{{item.display}}" class="text"
-            style="animation: first 6s linear infinite forwards;top:{{item.top}}%;left:{{item.right}};color:{{item.color}};"
-            bindtap="onDanmuClick" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}">
+            style="animation: first 10s linear infinite forwards;top:{{item.top}}%;left:{{item.right}};color:{{item.color}}; margin:10px;"
+            bindtap="onDanmuClick" data-latitude="{{item.latitude}}" 
+            data-longitude="{{item.longitude}}">
             {{item.value}}
         </text>
     </view>
