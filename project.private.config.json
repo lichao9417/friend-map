@@ -1,0 +1,89 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "home",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "chooseLocation",
+          "pathName": "pages/chooseLocation/chooseLocation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "edit",
+          "pathName": "pages/edit/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "findFriends",
+          "pathName": "pages/findFriends/findFriends",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "showInfo",
+          "pathName": "pages/showInfo/showInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "dbOperation",
+          "pathName": "pages/dbOperation/dbOperation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "diushoujuan",
+          "pathName": "pages/diushoujuan/diushoujuan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/danmu/danmu",
+          "pathName": "pages/danmu/danmu",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

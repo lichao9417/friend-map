@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/showInfo/showInfo",
+    "pages/findFriends/findFriends",
+    "pages/edit/edit",
+    "pages/test/test",
+    "pages/dbOperation/dbOperation",
+    "pages/diushoujuan/diushoujuan",
+    "pages/danmu/danmu"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "微信朋友地图",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "主页"
+    },{
+      "pagePath": "pages/findFriends/findFriends",
+      "text": "找朋友"
+    },{ 
+      "pagePath" : "pages/edit/edit",
+      "text" : "加入"
+    }]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-notify": "@vant/weapp/notify/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+  
+}

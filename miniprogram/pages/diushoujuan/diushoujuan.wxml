@@ -1,0 +1,16 @@
+<van-cell-group>
+  <van-field value="{{ msg }}" label="留言" type="textarea" placeholder="说点什么吧" bind:input='toInputShouJuanMsg'
+    autosize />
+</van-cell-group>
+<van-cell-group>
+  <van-field value="{{ address }}" center clearable label="选个位置" placeholder="手绢丢这里吧" border=" false " use-button-slot>
+    <van-button slot="button" size="small" type="info" bind:click="diuWhere">
+      选地址
+    </van-button>
+  </van-field>
+</van-cell-group>
+<van-button block round type="info" bind:click="diushoujuanConfirm">丢出去</van-button>
+
+
+
+<van-toast id="van-toast" />

@@ -1,0 +1,8 @@
+<view bindtap="onDanmuSwitch">
+        <van-icon wx:if="{{danmuSwitchStatus}}" name="{{danmuSwitchIcon_on}}"
+        size="300px"/>
+
+        <van-icon wx:else name="{{danmuSwitchIcon_off}}"
+        size="300px" />
+</view>
+

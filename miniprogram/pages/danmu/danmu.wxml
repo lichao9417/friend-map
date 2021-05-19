@@ -1,0 +1,15 @@
+
+<view class="danmuView">
+  <view wx:for="{{danmuList}}" wx:key="id">
+    <text wx:if="{{item.display}}" class="text" style="animation: first 8s linear infinite forwards;top:{{item.top}}%;color:{{item.color}};"
+    bindtap="onDanmuClick">
+      {{item.text}}
+    </text>
+  </view>
+</view>
+
+
+<view class="btn">
+  <input placeholder="请您输入弹幕" type="text" value="{{danmuValue}}" bindinput="onDanmuValue" />
+  <button bindtap="send_danmu">send</button>
+</view>

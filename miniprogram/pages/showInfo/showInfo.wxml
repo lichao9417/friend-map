@@ -1,0 +1,18 @@
+<!--pages/showInfo/showInfo.wxml-->
+
+<view>姓名:{{info.name}}</view>
+ <view>位置:{{info.location.name}}</view>
+ 
+ <view bindtap="onChatTa"> 
+  <van-icon name="chat-o" size="20px"/>
+ </view> 
+ <van-dialog id="van-dialog" />
+ <!-- <van-button type="info" size="small"  round icon="https://img.yzcdn.cn/vant/chat-o.png">私聊ta</van-button> -->
+
+<!-- <button>点赞(未实现)</button> -->
+<!-- <button bindtap="onRunAPI">去找Ta</button>
+<map id="friendMap"
+latitude="{{myInfo.location.latitude}}"
+longitude="{{myInfo.location.longitude}}"
+
+></map> -->

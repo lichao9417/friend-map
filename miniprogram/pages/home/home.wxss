@@ -1,0 +1,55 @@
+/* pages/home/home.wxss */
+
+page {
+    height: 100%;
+    width: 750rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cover-view {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+  }
+  
+  .flex-wrp{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-item{
+    font-size: 26rpx;
+  }
+  
+  /* pages/danmu/danmu.wxss */
+.text{
+  position: absolute;
+  white-space:nowrap;/* 防止向下换行*/
+  }
+  .danmuView{
+    z-index: 3;
+    height: 80%;
+    width: 100%;
+    position: absolute;
+  }
+  /**定义从右边向左边的移动的动画**/
+  @keyframes first{
+    from{left: 100%; }
+    to{left: -100%;}
+  }
+  .btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  .visitFriendContainer {
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+  }
+  .danmuText {
+    margin: 2px;
+  }

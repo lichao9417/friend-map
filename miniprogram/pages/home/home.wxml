@@ -1,0 +1,70 @@
+<van-toast id="van-toast" />
+<van-notify id="van-notify" />
+<!-- 弹幕生成 -->
+<view class="danmuView" wx:if="{{danmuSwitchStatus}}">
+    <view class="danmuText" wx:for="{{danmuList}}" wx:key="id">
+        <text wx:if="{{item.display}}" class="text"
+            style="animation: first 6s linear infinite forwards;top:{{item.top}}%;left:{{item.right}};color:{{item.color}};"
+            bindtap="onDanmuClick" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}">
+            {{item.value}}
+        </text>
+    </view>
+</view>
+<view style="width:100%;height:100%">
+    <map id="friendMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}"
+        markers="{{markers}}" include-points="{{markers}}" bindmarkertap="toShowInfo">
+
+    </map>
+</view>
+<view class="cover-view">
+    <view class="container">
+        <view class="flex-wrp">
+            <view class="flex-item" style="margin-right: 20px">
+                <van-button round type="info" bind:click="diushoujuanBtn">丢手绢</van-button>
+            </view>
+            <view class="flex-item">
+                <van-button round type="info" bind:click="send_danmuBtn">发弹幕</van-button>
+            </view>
+            <view class="flex-item" style="margin-left:20px" bindtap="onDanmuSwitch">
+                <van-icon wx:if="{{danmuSwitchStatus}}" 
+                name="{{danmuSwitchIcon_on}}" size="30px" />
+                <van-icon wx:else name="{{danmuSwitchIcon_off}}" size="30px" />
+            </view>
+        </view>
+    </view>
+
+</view>
+<!-- bindmarkertap模态框 -->
+<van-dialog use-slot title="去找朋友" show="{{ userMarkerShow }}" confirm-button-color="black">
+    <view class="visitFriendContainer">
+        <van-button round type="info" bind:click="onOpenMapApp">去找Ta</van-button>
+        <van-button round type="info" bind:click="onChatTa">私信Ta</van-button>
+        <!-- <van-notify id="van-notify" /> -->
+    </view>
+</van-dialog>
+
+
+<van-dialog use-slot title="{{shoujuanFrom}}的手绢" show="{{ shoujuanMarkerShow }}" show-cancel-button
+    bind:close="onClose">
+    <!-- <text style="min-height:120px"> -->
+    <van-cell-group>
+        <van-field value="{{ shoujuanMsg }}" label="留言" type="textarea" placeholder="请输入留言" autosize="{{autosize}}"
+            border="{{ false }}" readonly="{{true}}" />
+    </van-cell-group>
+    <!-- </text> -->
+</van-dialog>
+
+<!-- 发弹幕模态框 -->
+<van-dialog use-slot title="发送弹幕" show="{{ danmuDialogShow }}" show-cancel-button confirm-button-color="black">
+    <!-- 在页面内添加对应的节点 -->
+    <!-- <van-notify id="van-notify" /> -->
+    <van-cell-group>
+        <van-field value="{{ danmuValue }}" center clearable label="输入弹幕" placeholder="请输入弹幕内容" border=" false "
+            bind:input='onInputDanmu' use-button-slot>
+            <van-button slot="button" size="small" type="info" bind:click="send_danmu">
+                发送
+            </van-button>
+           
+        </van-field>
+    </van-cell-group>
+</van-dialog>

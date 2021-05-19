@@ -1,0 +1,4 @@
+/* pages/findFriends/findFriends.wxss */
+.friendItem {
+  text-align: center;
+}

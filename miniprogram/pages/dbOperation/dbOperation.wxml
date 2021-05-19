@@ -1,0 +1,3 @@
+<!--pages/dbOperation/dbOperation.wxml-->
+<text>pages/dbOperation/dbOperation.wxml</text>
+<button bindtap="test">test</button>
