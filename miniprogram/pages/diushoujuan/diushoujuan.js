@@ -48,8 +48,9 @@ Page({
       latitude: that.data.latitude,
       longitude: that.data.longitude,
       iconPath: '/images/shoujuan.png',
-      width: "50px",
-      height: '50px'
+      width: "30px",
+      height: '30px'
+      //rotate: 180
     }
 
     try {

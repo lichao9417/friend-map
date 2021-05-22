@@ -1,19 +1,28 @@
 <van-toast id="van-toast" />
 <van-notify id="van-notify" />
 <!-- 弹幕生成 -->
-<view class="danmuView" wx:if="{{danmuSwitchStatus}}">
+<!-- <view class="danmuView" wx:if="{{danmuSwitchStatus}}">
     <view class="danmuText" wx:for="{{danmuList}}" wx:key="id">
         <text wx:if="{{item.display}}" class="text"
-            style="animation: first 10s linear infinite forwards;top:{{item.top}}%;left:{{item.right}};color:{{item.color}}; margin:10px;"
+            style="animation: first 10s linear {{item.delay}}s infinite forwards;top:{{item.top}}%;color:{{item.color}};"
             bindtap="onDanmuClick" data-latitude="{{item.latitude}}" 
             data-longitude="{{item.longitude}}">
             {{item.value}}
         </text>
     </view>
+</view> -->
+
+<view wx:if="{{danmuSwitchStatus}}">
+    <text class="danmuText" wx:for="{{danmuList}}" wx:key="id" wx:if="{{item.display}}" class="text"
+        style="position:absolute;left:-130px;z-index:3;animation: first 10s linear {{item.delay}}s infinite forwards;top:{{item.top}}%;color:{{item.color}};"
+        bindtap="onDanmuClick" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}">
+        {{item.value}}
+    </text>
 </view>
+
 <view style="width:100%;height:100%">
     <map id="friendMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}"
-        markers="{{markers}}" include-points="{{markers}}" bindmarkertap="toShowInfo">
+        scale="{{scale}}" markers="{{markers}}" include-points="{{markers}}" bindmarkertap="toShowInfo">
 
     </map>
 </view>
@@ -21,14 +30,13 @@
     <view class="container">
         <view class="flex-wrp">
             <view class="flex-item" style="margin-right: 20px">
-                <van-button round type="info" bind:click="diushoujuanBtn">丢手绢</van-button>
+                <van-button round block type="info" bind:click="diushoujuanBtn">丢手绢</van-button>
             </view>
             <view class="flex-item">
-                <van-button round type="info" bind:click="send_danmuBtn">发弹幕</van-button>
+                <van-button round block type="info" bind:click="send_danmuBtn">发弹幕</van-button>
             </view>
             <view class="flex-item" style="margin-left:20px" bindtap="onDanmuSwitch">
-                <van-icon wx:if="{{danmuSwitchStatus}}" 
-                name="{{danmuSwitchIcon_on}}" size="30px" />
+                <van-icon wx:if="{{danmuSwitchStatus}}" name="{{danmuSwitchIcon_on}}" size="30px" />
                 <van-icon wx:else name="{{danmuSwitchIcon_off}}" size="30px" />
             </view>
         </view>
@@ -54,11 +62,16 @@
     </van-cell-group>
     <!-- </text> -->
 </van-dialog>
-
+<!-- 发送大幕底部弹出层 -->
+<van-popup show="{{ danmuDialogShow }}" bind:close="onDanmuClose" round position="top">
+    <van-cell-group>
+        <van-field focus="{{ danmuDialogShow }}" value="{{ danmuValue }}" placeholder="请输入弹幕" border="{{ false }}"
+            bind:input="onInputDanmu" bind:confirm="send_danmu" error-message="{{danmuErrorMsg}}" />
+    </van-cell-group>
+</van-popup>
 <!-- 发弹幕模态框 -->
-<van-dialog use-slot title="发送弹幕" show="{{ danmuDialogShow }}" show-cancel-button confirm-button-color="black">
-    <!-- 在页面内添加对应的节点 -->
-    <!-- <van-notify id="van-notify" /> -->
+<!-- <van-dialog use-slot title="发送弹幕" show="{{ danmuDialogShow }}" show-cancel-button confirm-button-color="black">
+    <van-notify id="van-notify" /> 
     <van-cell-group>
         <van-field value="{{ danmuValue }}" center clearable label="输入弹幕" placeholder="请输入弹幕内容" border=" false "
             bind:input='onInputDanmu' use-button-slot>
@@ -68,4 +81,4 @@
            
         </van-field>
     </van-cell-group>
-</van-dialog>
+</van-dialog> -->

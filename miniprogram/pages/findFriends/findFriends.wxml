@@ -1,17 +1,38 @@
-
 <view class="section">
-  <view class="section__title">请选择朋友所在省市区</view>
-  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+  <view class="infoAddOn">
+    <image src="../../images/select.png" style="width:25px;height:25px;margin:5px"></image>
+    <view class="section__title InfoAddOn-field">请选择朋友所在省市区</view>
+  </view>
+  <view class="infoAddOn">
+    <image src="../../images/selected.png" style="width:25px;height:25px;margin:5px;"></image>
+    <picker class="InfoAddOn-field" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
     <view class="picker">
       当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
     </view>
   </picker>
+  <!-- <image src="../../images/select.png" style="width:25px;height:25px;margin:5px"></image> -->
+  </view>
 </view>
 <van-divider hairline />
-<view class="friendItem" wx:for="{{friendList}}" wx:key="_id" bindtap="toShowInfo" data-info="{{item}}">{{item.name}}
+<!-- <view class="friendItem" wx:for="{{friendList}}" wx:key="_id" bindtap="toShowInfo" data-info="{{item}}">{{item.name}}
   <van-icon name="chat" />
   <van-divider hairline />
+</view> -->
+
+<view wx:for="{{friendList}}"  wx:key="_id">
+  <view class="infoAddOn" data-latitude="{{item.location.latitude}}" 
+            data-longitude="{{item.location.longitude}}">
+    <image src="../../images/userInfo.png" style="width:25px;height:25px" ></image>
+    <text class="InfoAddOn-field-name" style="text-align:center">{{item.name}}</text>
+    <!-- <text class="InfoAddOn-field-address" style="text-align:right">{{item.address}}</text>
+    <image src="../../images/location-info.png" style="width:25px;height:25px" ></image> -->
+  </view>
+  <van-divider hairline />
 </view>
+
+
+
+
 <view wx:if="{{empty}}">
   <van-empty image="search" description="所选地区未找到好友" />
 </view>

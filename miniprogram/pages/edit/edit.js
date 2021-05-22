@@ -1,3 +1,4 @@
+import Toast from './../../miniprogram_npm/@vant/weapp/toast/toast';
 let lock = 0;//
 let that = null
 let addUserData = {}
@@ -69,6 +70,7 @@ Page({
       }
     },
     toChooseLocation: function() {
+      console.log(111)
       lock = 1;
         that = this
         wx.chooseLocation({
@@ -97,10 +99,17 @@ Page({
       })
     },
     toSaveInfo: function() {
-      wx.showLoading({
-        title: '保存用户信息',
-      })
       that = this;
+      console.log(that.data.location)
+      if(that.data.location === undefined) {
+        Toast("请您先选择位置再提交哦！");
+        return;
+      }
+      if(that.data.name === '') {
+        Toast("请您先输入姓名再提交哦！");
+        return;
+      }
+      
       let markerId = Math.round(new Date() / 1000)//时间戳  以0结尾表示手绢
       markerId = markerId * 10+1;//以0结尾表示手绢 以1结尾表示用户marker
       oneUserMarker = {
@@ -133,6 +142,10 @@ Page({
       addUserData.isMarkedOnMap = that.data.isMarkedOnMap;
       //addUserData.requestFromPage = "edit";
       console.log("addUserData",addUserData)
+     
+      wx.showLoading({
+        title: '保存用户信息',
+      })
       //缓存登陆用户信息
       wx.setStorage({
         key: "myInfo",

@@ -2,3 +2,17 @@
 .friendItem {
   text-align: center;
 }
+.infoAddOn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.InfoAddOn-field-name {
+  flex: 1
+}
+.InfoAddOn-field-address {
+  flex: 2
+}
+.InfoAddOn-field {
+  flex: 1
+}

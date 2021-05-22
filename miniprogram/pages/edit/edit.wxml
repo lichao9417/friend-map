@@ -1,22 +1,26 @@
 <van-cell-group>
-  <van-field value="{{ address }}" readonly center clearable label="选个位置" placeholder="将显示您的定位信息" border="{{ false }}"
+  <van-field value="{{ address }}" left-icon="location-o" readonly center clearable label="选个位置" placeholder="将显示您的定位信息" border="{{ false }}"
     use-button-slot>
     <van-button round type="info" slot="button" size="small" bindtap="toChooseLocation">选择位置</van-button>
   </van-field>
 </van-cell-group>
+
 <van-cell-group>
-  <van-field label="姓名" type="text" va placeholder="请输入您的姓名" bind:input='toGetName' value="{{name}}"/>
+  <van-field left-icon="contact" label="姓名" type="text" va placeholder="请输入您的姓名" bind:input='toGetName' value="{{name}}"/>
 </van-cell-group>
+
 <van-cell-group>
-  <van-field placeholder="是否在地图上显示" center clearable label="地图显示" readonly border="{{ false }}" use-button-slot>
+  <van-field  left-icon="eye-o" placeholder="是否在地图上显示" center clearable label="地图显示" readonly border="{{ false }}" use-button-slot>
     <van-switch slot="button" checked="{{ isMarkedOnMap }}" bind:change="toCreateMarkOnMap" />
   </van-field>
 </van-cell-group>
 <van-cell-group>
-  <van-field placeholder="是否开启隐身模式" center clearable label="隐身模式" readonly border="{{ false }}" use-button-slot>
+  <van-field left-icon="closed-eye" placeholder="是否开启隐身模式" center clearable label="隐身模式" readonly border="{{ false }}" use-button-slot>
     <van-switch slot="button" checked="{{ invisibleMode }}" bind:change="toChangeVisible" />
   </van-field>
 </van-cell-group>
 <view style="display:flex;justify-content:center;align-items:center;margin-top:10px">
   <van-button round type="info" bind:click="toSaveInfo" center>保存</van-button>
 </view>
+<van-toast id="van-toast" />
+

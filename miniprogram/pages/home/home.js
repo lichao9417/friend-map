@@ -36,6 +36,7 @@ Page({
     danmuShow: true,  //是否显示弹幕
     danmuList: [], //弹幕数组
     danmuSwitchStatus: true,
+    danmuErrorMsg:'',//弹幕错误提示
 		danmuSwitchIcon_on: "https://786c-xly-2gc3is3wd07cf03e-1303899389.tcb.qcloud.la/friend-map-images/danmu_on.png?sign=bfd057db306adda5d460c76f8af3c74e&t=1621069142",
 		danmuSwitchIcon_off:"https://786c-xly-2gc3is3wd07cf03e-1303899389.tcb.qcloud.la/friend-map-images/danmu_off%20.png?sign=ddd3fbc2d95f54fa0a4054f375d93c79&t=1621069115"
   },
@@ -97,9 +98,11 @@ Page({
     let flag = e_detail_markerId%10//0:shoujuanmarker 1:用户marker
     //
     if(flag === 1) {
-      that.setData({
-        userMarkerShow: true
-      })
+      // that.setData({
+      //   userMarkerShow: true
+      // })
+      that.onOpenMapApp();
+
     }
     if(flag === 0) {
       that.setData({
@@ -205,8 +208,8 @@ Page({
       latitude: that.data.shoujuan.latitude,
       longitude: that.data.shoujuan.longitude,
       iconPath: '/images/shoujuan.png',
-      width: "50px",
-      height: '50px'
+      width: "20px",
+      height: '20px'
     }
     try {
       var value = wx.getStorageSync('userDocInfo')
@@ -235,7 +238,13 @@ Page({
     this.setData({
       danmuDialogShow: true
     })
-  },//onInputDanmu
+  },
+  onDanmuClose: function() {
+		this.setData({
+			danmuDialogShow: false
+		})
+	},
+  //onInputDanmu
   onInputDanmu: function(e) {
     console.log(e)
     this.setData({
@@ -263,7 +272,7 @@ Page({
         danmuData.display = true;
         danmuData.color = getRandomColor();
         danmuData.top = parseInt(Math.random() * 100);
-        danmuData.right = parseInt(Math.random() * 20);
+        danmuData.delay = Math.random() * 5;
         //danmuData.top = Math.floor(Math.random()*10+1)
         danmuData.value = that.data.danmuValue;
         danmuData.latitude = value.location.latitude;
@@ -271,8 +280,10 @@ Page({
       }
       //只有关闭隐身模式并且开启在地图上显示marker的用户才可以发弹幕
       if(value.invisibleMode || !value.isMarkedOnMap) {
-        Notify("关闭隐身模式并且开启在地图上显示才可以发送弹幕！");
-        
+        //Notify("关闭隐身模式并且开启在地图上显示才可以发送弹幕！");
+        that.setData({
+          danmuErrorMsg: '关闭隐身模式并且开启在地图上显示才可以发送弹幕！'
+        });
         return;
       }
     } catch (e) {
@@ -297,7 +308,9 @@ Page({
       success: res => {
        console.log(res)
        that.setData({
-        danmuValue: ''
+        danmuValue: '',
+        danmuErrorMsg: '',
+        danmuDialogShow: false
        })
        wx.hideLoading();
        //更新view中的弹幕
@@ -322,7 +335,8 @@ Page({
     console.log(e)
     this.setData({
       latitude: e.currentTarget.dataset.latitude,
-      longitude: e.currentTarget.dataset.longitude
+      longitude: e.currentTarget.dataset.longitude,
+      scale: 16
     })
   },
   //获取所有弹幕

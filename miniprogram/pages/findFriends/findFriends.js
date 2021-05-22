@@ -59,6 +59,15 @@ Page({
             url: '../showInfo/showInfo',
         })
     },
+    //拉起地图APP选择导航
+  onOpenMapApp: function(e) {
+      console.log(e)
+    friendMapCtx.openMapApp({
+        latitude: location.latitude,
+        longitude: location.longitude,
+        destination: location.name//目的地名称 必填
+      })
+  },
 
     /**
      * 生命周期函数--监听页面加载

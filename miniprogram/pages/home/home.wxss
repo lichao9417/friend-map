@@ -11,6 +11,7 @@ page {
     position: fixed;
     bottom: 20px;
     width: 100%;
+    z-index: 2000;
   }
   
   .flex-wrp{
@@ -24,20 +25,28 @@ page {
   }
   
   /* pages/danmu/danmu.wxss */
-.text{
-  position: absolute;
+  .text {
+  /* position: absolute; */
   white-space:nowrap;/* 防止向下换行*/
-  }
+  } 
   .danmuView{
     z-index: 3;
     height: 80%;
     width: 100%;
     position: absolute;
   }
+  .danmuText {
+    
+    margin: 2px;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+    flex-wrap: wrap; */
+  }
   /**定义从右边向左边的移动的动画**/
   @keyframes first{
-    from{left: 100%; }
-    to{left: -100%;}
+    from{left: -750rpx; }
+    to{left: 750rpx;}
   }
   .btn {
     position: absolute;
@@ -50,6 +59,4 @@ page {
     justify-content: space-around;
     align-items: center; 
   }
-  .danmuText {
-    margin: 2px;
-  }
+  
