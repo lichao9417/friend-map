@@ -1,3 +1,10 @@
+<van-notice-bar
+  text="此页面用于按“省市区”查找未在地图上显示的朋友"
+  mode="closeable"
+  color="rgb(25, 137, 250)"
+  background="rgb(236, 249, 255) none repeat scroll 0% 0%;"
+  left-icon="//img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png"
+/>
 <view class="section">
   <view class="infoAddOn">
     <image src="../../images/select.png" style="width:25px;height:25px;margin:5px"></image>
@@ -29,9 +36,6 @@
   </view>
   <van-divider hairline />
 </view>
-
-
-
 
 <view wx:if="{{empty}}">
   <van-empty image="search" description="所选地区未找到好友" />

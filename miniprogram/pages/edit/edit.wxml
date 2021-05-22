@@ -15,7 +15,7 @@
   </van-field>
 </van-cell-group>
 <van-cell-group>
-  <van-field left-icon="closed-eye" placeholder="是否开启隐身模式" center clearable label="隐身模式" readonly border="{{ false }}" use-button-slot>
+  <van-field left-icon="closed-eye" placeholder="隐藏自己的所有信息" center clearable label="隐身模式" readonly border="{{ false }}" use-button-slot>
     <van-switch slot="button" checked="{{ invisibleMode }}" bind:change="toChangeVisible" />
   </van-field>
 </van-cell-group>
