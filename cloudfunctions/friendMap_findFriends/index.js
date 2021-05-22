@@ -19,10 +19,10 @@ exports.main = async (event, context) => {
   let area = event.area;
   let region = {};
 
+  if (area !== '全部')
+    region.area = area;
   if (city !== '全部')
     region.city = city;
-  if (area !== '全部')
-    region.province = province;
   if (province !== '全部') {
     region.province = province;
     findObj.region = region;//避免出现region为空对象，查询出错
