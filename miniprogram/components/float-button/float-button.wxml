@@ -1,0 +1,8 @@
+<!--components/float-button/float-button.wxml-->
+<text>components/float-button/float-button.wxml</text>
+
+
+
+<float-button bind:contactClick="onContactClick" mainmodel="{{mainmodel}}">
+
+</float-button>  

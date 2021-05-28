@@ -1,0 +1,28 @@
+/* pages/mine/mine.wxss */
+.text-container {
+
+  margin-top:  10px 0;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  color: #323233;
+
+}
+
+.title {
+  max-height: 32px;
+  font-weight: bold;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.content {
+  margin-top: 8px;
+  font-size: 15px;
+  background-color: #fafafa;
+  padding: 5px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}

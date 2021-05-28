@@ -1,5 +1,5 @@
 <van-cell-group>
-  <van-field value="{{ address }}" left-icon="location-o" readonly center clearable label="选个位置" placeholder="将显示您的定位信息" border="{{ false }}"
+  <van-field value="{{ address }}" left-icon="location-o"  center clearable label="选个位置" placeholder="将显示您的定位信息" border="{{ false }}"
     use-button-slot>
     <van-button round type="info" slot="button" size="small" bindtap="toChooseLocation">选择位置</van-button>
   </van-field>
@@ -22,5 +22,8 @@
 <view style="display:flex;justify-content:center;align-items:center;margin-top:10px">
   <van-button round type="info" bind:click="toSaveInfo" center>保存</van-button>
 </view>
-<van-toast id="van-toast" />
+<van-toast id="van-toast"/>
 
+
+
+<van-button open-type="contact" icon="service-o" type="info" round></van-button>

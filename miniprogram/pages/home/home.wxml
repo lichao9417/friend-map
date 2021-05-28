@@ -13,8 +13,8 @@
 </view> -->
 
 <view wx:if="{{danmuSwitchStatus}}">
-    <text class="danmuText" wx:for="{{danmuList}}" wx:key="id" wx:if="{{item.display}}" class="text"
-        style="position:absolute;left:-130px;z-index:3;animation: first 10s linear {{item.delay}}s infinite forwards;top:{{item.top}}%;color:{{item.color}};"
+    <text class="danmuText" wx:for="{{danmuList}}" wx:key="id" wx:if="{{item.display}}"
+        style="position:absolute;left:-135px;z-index:3;animation: first 10s linear {{item.delay}}s infinite forwards;top:{{item.top}}%;color:{{item.color}};"
         bindtap="onDanmuClick" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}">
         {{item.value}}
     </text>
@@ -30,10 +30,10 @@
     <view class="container">
         <view class="flex-wrp">
             <view class="flex-item" style="margin-right: 20px">
-                <van-button round block type="info" bind:click="diushoujuanBtn">丢手绢</van-button>
+                <van-button wx:if="{{disabledBtn}}" round block type="info" bind:click="diushoujuanBtn">丢手绢</van-button>
             </view>
             <view class="flex-item">
-                <van-button round block type="info" bind:click="send_danmuBtn">发弹幕</van-button>
+                <van-button round block type="info" wx:if="{{disabledBtn}}"  bind:click="send_danmuBtn">发弹幕</van-button>
             </view>
             <view class="flex-item" style="margin-left:20px" bindtap="onDanmuSwitch">
                 <van-icon wx:if="{{danmuSwitchStatus}}" name="{{danmuSwitchIcon_on}}" size="30px" />
@@ -53,8 +53,9 @@
 </van-dialog>
 
 
-<van-dialog use-slot title="{{shoujuanFrom}}的手绢" show="{{ shoujuanMarkerShow }}" show-cancel-button
-    bind:close="onClose">
+<!-- <view bindtap="prevent"> -->
+    <van-dialog use-slot title="{{shoujuanFrom}}的手绢" show="{{ shoujuanDialogShow }}" 
+    bind:close="closeShoujuanDialog" confirm-button-color="#333">
     <!-- <text style="min-height:120px"> -->
     <van-cell-group>
         <van-field value="{{ shoujuanMsg }}" label="留言" type="textarea" placeholder="请输入留言" autosize="{{autosize}}"
@@ -62,6 +63,7 @@
     </van-cell-group>
     <!-- </text> -->
 </van-dialog>
+<!-- </view> -->
 <!-- 发送大幕底部弹出层 -->
 <van-popup show="{{ danmuDialogShow }}" bind:close="onDanmuClose" round position="top">
     <van-cell-group>

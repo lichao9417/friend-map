@@ -41,7 +41,7 @@ Page({
         } catch (e) {
           // Do something when catch error
         }
-      }
+     }
       
     },
     getUserProfile() {
@@ -59,16 +59,7 @@ Page({
       })
     },
   
-    onGetUserInfo: function(e) {
-      if (!this.data.logged && e.detail.userInfo) {
-        this.setData({
-          logged: true,
-          avatarUrl: e.detail.userInfo.avatarUrl,
-          userInfo: e.detail.userInfo,
-          hasUserInfo: true,
-        })
-      }
-    },
+    
     toChooseLocation: function() {
       console.log(111)
       lock = 1;
@@ -121,7 +112,7 @@ Page({
         height: '50px',
         callout: {
           content: that.data.name,
-          color: '#ff0000',
+          color: '#000000',
           fontSize: 14,
           borderWidth: 2,
           borderRadius: 10,
@@ -140,6 +131,7 @@ Page({
       addUserData.address = that.data.address;
       addUserData.invisibleMode = that.data.invisibleMode;
       addUserData.isMarkedOnMap = that.data.isMarkedOnMap;
+      addUserData.logged = true;
       //addUserData.requestFromPage = "edit";
       console.log("addUserData",addUserData)
      

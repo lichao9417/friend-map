@@ -25,10 +25,7 @@ page {
   }
   
   /* pages/danmu/danmu.wxss */
-  .text {
-  /* position: absolute; */
-  white-space:nowrap;/* 防止向下换行*/
-  } 
+  
   .danmuView{
     z-index: 3;
     height: 80%;
@@ -36,7 +33,7 @@ page {
     position: absolute;
   }
   .danmuText {
-    
+    white-space:nowrap;
     margin: 2px;
     /* display: flex;
     justify-content: space-around;

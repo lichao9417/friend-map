@@ -29,7 +29,7 @@ Page({
       address: ''
     },
     userMarkerShow: false,//bindmarkertap dialog
-    shoujuanMarkerShow: false,
+    shoujuanDialogShow: false,
     //弹幕相关
     danmuDialogShow: false,  //默认不显示发送弹幕模态框
     danmuValue: '',
@@ -39,6 +39,9 @@ Page({
     danmuErrorMsg:'',//弹幕错误提示
 		danmuSwitchIcon_on: "https://786c-xly-2gc3is3wd07cf03e-1303899389.tcb.qcloud.la/friend-map-images/danmu_on.png?sign=bfd057db306adda5d460c76f8af3c74e&t=1621069142",
 		danmuSwitchIcon_off:"https://786c-xly-2gc3is3wd07cf03e-1303899389.tcb.qcloud.la/friend-map-images/danmu_off%20.png?sign=ddd3fbc2d95f54fa0a4054f375d93c79&t=1621069115"
+  },
+  prevent: function() {
+    return;
   },
   //获取用户marker和手绢marker
   getAllMapMarkers: function() {
@@ -82,12 +85,22 @@ Page({
     this.getAllMapMarkers()
   },
   onShow: function () {
+    that = this;
     console.log("home show")
     this.getAllMapMarkers()
-    this.getDanmu()
+    this.getDanmu();
+    var value = wx.getStorageSync('userDocInfo')
+    if(value) {
+      console.log(value)
+      that.setData({
+        disabledBtn: value.logged
+      })
+    }
   },
   toShowInfo(e) {
-    
+    if(this.data.shoujuanDialogShow)
+      return ;
+
     //点击标记点时触发，e.detail = {markerId}
     console.log(e)
     
@@ -106,14 +119,14 @@ Page({
     }
     if(flag === 0) {
       that.setData({
-        shoujuanMarkerShow: true
+        shoujuanDialogShow: true
       })
       wx.showLoading({
         title: '加载中',
       })
       wx.cloud.callFunction({
         // 要调用的云函数名称
-        name: 'friendMap_getOneshoujuanDoc',
+        name: 'friendMap_getShoujuan',
         // 传递给云函数的event参数
         data: {
           markerId: e_detail_markerId
@@ -230,9 +243,14 @@ Page({
 
     //判断输入信息是否完整
     //新加的手绢marker直接push到markers里
-
-
   },
+
+  closeShoujuanDialog: function() {
+    this.setData({
+      shoujuanDialogShow: false
+    })
+  },
+
   //发弹幕相关函数
   send_danmuBtn: function() {
     this.setData({
@@ -271,8 +289,8 @@ Page({
         danmuData.from.name = value.name;
         danmuData.display = true;
         danmuData.color = getRandomColor();
-        danmuData.top = parseInt(Math.random() * 100);
-        danmuData.delay = Math.random() * 5;
+        danmuData.top = parseInt(Math.random() * 80);
+        danmuData.delay = Math.random() * 3;
         //danmuData.top = Math.floor(Math.random()*10+1)
         danmuData.value = that.data.danmuValue;
         danmuData.latitude = value.location.latitude;

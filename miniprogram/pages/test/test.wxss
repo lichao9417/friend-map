@@ -1,10 +1,11 @@
-.t {
-  background:blue;
-  position: absolute;
-  animation: mymove 5s infinite;
-}
-
-@keyframes mymove {
-  from {left:0}
-  to {left:200px}
+.btn {
+  background-color: red;
+  display: fixed;
+  position: fixed;
+  left: .0rpx;
+  right: .0rpx;
+  top: .0rpx;
+  bottom: .0rpx;
+  height: 100%;
+  width: 100%;
 }

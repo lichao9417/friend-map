@@ -81,6 +81,12 @@
         {
           "name": "pages/danmu/danmu",
           "pathName": "pages/danmu/danmu",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "mine",
+          "pathName": "pages/mine/mine",
           "scene": null
         }
       ]

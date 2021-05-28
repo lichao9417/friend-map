@@ -8,11 +8,13 @@ cloud.init({
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
-  //console.log(event)
-  let findCondition = {}
-  if(event.code === 1)
-    findCondition = {
+ 
+  try {
+    return await db.collection('friend-map-danmu').where({
       "userInfo.openId": event.userInfo.openId
-    }
-  return await db.collection('friend-map-danmu').where(findCondition).get()  
+    }).remove()  
+  } catch(e) {
+    console.error(e)
+  }
+
 }

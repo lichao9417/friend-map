@@ -1,20 +1,4 @@
-<van-cell-group>
-  <van-field
-    value="{{ username }}"
-    required
-    clearable
-    label="用户名"
-    icon="question-o"
-    placeholder="请输入用户名"
-    bind:click-icon="onClickIcon"
-  />
-</van-cell-group>  
-<van-cell-group>
-  <van-field
-    value="输入框已禁用"
-    label="用户名"
-    left-icon="location-o"
-    disabled
-    border="{{ false }}"
-  />
-</van-cell-group>
+<button >111</button>
+
+
+<view class="btn">333</view>

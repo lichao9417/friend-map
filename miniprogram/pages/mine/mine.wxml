@@ -1,0 +1,70 @@
+<!-- <view class="text-container">
+  <view class="title">我的弹幕</view>
+  <view wx:if="{{myDanmu===''}}">
+    <van-empty description="您暂时还未发送弹幕">
+    </van-empty>
+  </view>
+  <view wx:else>
+    <view class="content">{{myDanmu}} </view>
+    <view class="btnContainer">
+      <van-button round type="danger" bind:click="onRemoveMyDanmu" class="bottom-button removeBtn" size="mini">
+        删除
+      </van-button>
+    </view>
+  </view>
+</view>
+
+<van-divider />
+
+<view class="text-container">
+  <view class="title">我的手绢</view>
+  <view wx:if="{{myShoujuan===''}}">
+    <van-empty description="您暂时还未丢手绢">
+    </van-empty>
+  </view>
+  <view wx:else>
+    <view class="content">{{myShoujuan}} </view>
+    <view class="btnContainer">
+      <van-button round type="danger" bind:click="onRemoveMyShoujuan" class="bottom-button removeBtn" size="mini">
+        删除
+      </van-button>
+    </view>
+  </view>
+</view> -->
+
+
+<van-tabs active="a">
+  <van-tab title="我的弹幕" name="a">
+    <view class="text-container">
+      <view wx:if="{{myDanmu===''}}">
+        <van-empty description="您暂时还未发送弹幕">
+        </van-empty>
+      </view>
+      <view wx:else>
+        <view class="content">{{myDanmu}} </view>
+        <view class="btnContainer">
+          <van-button round type="danger" bind:click="onRemoveMyDanmu" class="bottom-button removeBtn" size="mini">
+            删除
+          </van-button>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="我的手绢" name="b">
+    <view class="text-container">
+
+      <view wx:if="{{myShoujuan===''}}">
+        <van-empty description="您暂时还未丢手绢">
+        </van-empty>
+      </view>
+      <view wx:else>
+        <view class="content">{{myShoujuan}} </view>
+        <view class="btnContainer">
+          <van-button round type="danger" bind:click="onRemoveMyShoujuan" class="bottom-button removeBtn" size="mini">
+            删除
+          </van-button>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
